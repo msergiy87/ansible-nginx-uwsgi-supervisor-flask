@@ -7,11 +7,15 @@ An Ansible role to setup and manage a Flask UWSGI app via supervisor, and served
 role is to make deployment of WSGI app as a simple and sane as possible.  Additionally the role provides sane defaults
 for logging and folder structure setup.
 
-# Requirements
+Requirements
+------------
+
 - aptitude or python-apt (required by apt tasks)
 - python > 2.5 (required by ini_file tasks)
 
-# Distros tested
+Distros tested
+------------
+
 This role is designed to work against a modern Ubuntu system.  (Tested on Ubuntu 13.10 and 14.04)  It should 
 theoretically work on older versions of Ubuntu or Debian based systems.
 
