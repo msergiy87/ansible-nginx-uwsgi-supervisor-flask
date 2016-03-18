@@ -1,0 +1,8 @@
+---
+# tasks file for ansible-nginx-uwsgi-supervisor
+- include: python.yaml
+- include: nginx.yaml
+- include: supervisor.yaml
+- include: web_data_folders.yaml
+- include: uwsgi.yaml
+- include: flask.yaml

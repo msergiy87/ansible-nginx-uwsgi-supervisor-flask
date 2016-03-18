@@ -1,0 +1,14 @@
+---
+- name: install flask
+  pip: name=flask virtualenv={{ uwsgi_venv }}
+
+- name: create dir for flask
+  file: path={{ app_root_path }} state=directory
+        owner={{ web_server_group }} group={{ web_server_group }} mode=0755
+
+- name: app for flask
+  template: src=flask/{{ item.src }} dest={{ app_root_path }}/{{ item.dest }}
+  with_items: 
+  - { src: 'wsgi.py', dest: '{{ app_name }}.py' }
+  - { src: 'myproject.py', dest: 'myproject.py' }
+  notify: restart supervisord

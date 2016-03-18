@@ -1,0 +1,22 @@
+---
+# defaults file for ansible-nginx-uwsgi-supervisor
+
+# Web root paths + app name + home
+web_root_path: /srv/www
+web_server_group: www-data
+
+app_name: app
+app_root_path: "{{ web_root_path }}/{{ app_name }}_webapp"
+
+# NGINX
+app_nginx_hostname: localhost
+app_nginx_static_path: "{{ app_root_path }}/{{ app_name }}/static/"
+
+# UWSGI
+app_uwsgi_port: 8000
+app_uwsgi_executable: "{{ app_name }}"
+app_uwsgi_envs: {}
+
+# Virtualenvs
+virtualenv_root_path: "{{ web_root_path }}/virtualenvs"
+app_venv: "{{ virtualenv_root_path }}/{{ app_name }}"

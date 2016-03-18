@@ -1,0 +1,14 @@
+---
+- hosts: web
+  user: root
+
+  roles:
+#    - ansible-nginx-uwsgi-supervisor-flask
+      - { role: ansible-nginx-uwsgi-supervisor-flask,
+          app_name: app,
+          app_nginx_hostname: localhost,
+          app_uwsgi_port: 8080,
+          app_uwsgi_executable: app }
+  tasks:
+#    - debug: msg={{ ansible_env.SUDO_USER }}
+    - debug: msg={{ansible_default_ipv4}}

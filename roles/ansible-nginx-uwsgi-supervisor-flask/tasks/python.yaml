@@ -1,0 +1,17 @@
+---
+- name: install python dev
+  apt: pkg={{ item }} state=present
+  with_items:
+    - python-dev
+    - python-setuptools
+    - libpcre3
+    - libpcre3-dev
+
+- name: install pip
+  easy_install: name=pip
+
+- name: install virtualenv
+  pip: name={{ item }} state=present extra_args='--upgrade'
+  with_items:
+    - pip
+    - virtualenv
